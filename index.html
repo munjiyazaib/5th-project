@@ -1,0 +1,1613 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Touché</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <style>
+    .ratio.ratio-1x1 img {
+      height: 140px;
+      width: 140px;
+    }
+
+    .nav-link:focus,
+    .nav-link:hover {
+      color: black;
+    }
+
+    nav.navbar.navbar-dark.navbar-expand-lg.navbar-togglable.fixed-top {
+      background: white;
+    }
+
+    #nav-home.active,
+    #nav-about.active,
+    #nav-reservation.active,
+    #nav-news.active,
+    #nav-gallery.active,
+    #nav-contact.active {
+      background-color: #f5a637;
+      color: white !important;
+    }
+
+    a#nav-home\.active {
+      color: orange;
+      border-bottom: 2px solid black;
+    }
+
+    a.navbar-brand.d-none.d-lg-flex.mx-lg-auto {
+      color: black;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    /* a.nav-link:hover {
+    color: grey;
+}
+a.nav-link {
+    color: white;
+} */
+    /* a#mainsTab {
+    background: black;
+} */
+    a.nav-link {
+      color: black;
+    }
+
+    a.nav-link:hover {
+      color: #f5a637;
+    }
+
+    .bg-black {
+      --bs-bg-opacity: 1;
+      background-color: #212529 !important;
+    }
+
+    .btn:hover {
+      color: var(--bs-btn-hover-color);
+      background-color: #f5a637;
+      border-color: #f5a637;
+    }
+
+    .text-warning {
+      --bs-text-opacity: 1;
+      color: #f5a637;
+    }
+
+    .btn-outline-primary {
+      --bs-btn-color: #000;
+    }
+
+    .btn {
+      border-color: #f5a637;
+    }
+
+    div#eventOne {
+      width: 100%;
+      background-image: url(image/cb-1.webp);
+      height: 520px;
+      object-fit: cover;
+    }
+
+    .bg-opacity-50 {
+      --bs-bg-opacity: 0.5;
+      height: 520px;
+    }
+
+    .bg-secondary {
+      --bs-bg-opacity: 1;
+      background-color: rgb(30 33 37) !important;
+    }
+
+    .container.section-title {
+      text-align: center;
+    }
+
+
+    .nav-link.active {
+      color: #f5a637 !important;
+      /* Active tab text color */
+      border-bottom: 2px solid black;
+      /* Black underline for active tab */
+    }
+
+    .nav-link {
+      color: black;
+      /* Default tab text color */
+      border-bottom: 2px solid transparent;
+      /* No underline for inactive tabs */
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #f5a637;
+      /* Hover effect for tabs */
+    }
+
+    #nav-link.active {
+      background-color: #f5a637;
+      color: white !important;
+    }
+
+    .ratio.ratio-1x1 img {
+      height: 118px;
+      width: 140px;
+      padding: 2px;
+    }
+
+    h5.text-xs {
+      color: #f5a637;
+    }
+
+    .row.py-10 {
+      padding: 17px;
+    }
+
+    /* section#reservation {
+      padding: 43px;
+    } */
+
+    /* section.py-7.py-md-9.bg-light {
+      padding: 35px;
+    } */
+
+    nav img {
+      height: 79px;
+      width: 87px;
+    }
+
+
+
+
+    .client-image {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .client-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .hover-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            transform: scale(0);
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+        .client-image h1 {
+    color: white;
+}
+.col-md-4 {
+    margin-top: 21px;
+}
+
+        .hover-effect::before {
+            content: '';
+            position: absolute;
+            top: 91%;
+            left: -43%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(-63deg);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .hover-effect::after {
+            content: '';
+            position: absolute;
+            bottom: 91%;
+            right: -43%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(63deg);
+            opacity: 0;
+            /* transition: opacity 0.3s ease; */
+            transition: opacity 4.7s ease;
+        }
+
+        .hover-effect i {
+            font-size: 2rem;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .client-image:hover img {
+            transform: scale(1.1);
+            opacity: 0.5;
+        }
+
+        .client-image:hover .hover-effect {
+            transform: scale(1);
+        }
+
+        .client-image:hover .hover-effect::before,
+        .client-image:hover .hover-effect::after {
+            opacity: 1;
+        }
+
+        .client-image:hover .hover-effect i {
+            opacity: 1;
+        }
+
+
+    @media (max-width: 991px) {
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+
+      .navbar-toggler {
+        border-color: black;
+      }
+    }
+
+    @media (max-width: 1365px) {
+      .ratio.ratio-1x1 img {
+        height: 116px;
+        width: 119px;
+        padding: 2px;
+      }
+    }
+
+    @media (max-width:1000px) {
+      .ratio.ratio-1x1 img {
+        height: 72px;
+        width: 74px;
+        padding: 2px;
+      }
+
+    }
+
+    @media (max-width:991px) {
+      .col-lg-8.details.order-2.order-lg-1 {
+        padding-top: 15px;
+      }
+
+      @media (max-width:767px) {}
+
+      .col-9.offset-3.col-md-3.offset-md-0.text-md-right {
+        padding-bottom: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-dark navbar-expand-lg navbar-togglable fixed-top">
+    <div class="container">
+      <!-- Navbar brand (mobile) -->
+      <a class="navbar-brand d-lg-none" href="./index.html"><img
+          src="image/Cream and Brown Minimalist Coffee Shop Logo (1).png" alt=""></a>
+
+      <!-- Navbar toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <!-- Navbar nav -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" id="nav-home.active" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="nav-about" href="./about-us.html">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="nav-reservation" href="./Reservation.html">Reservation</a>
+          </li>
+        </ul>
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand d-none d-lg-flex mx-lg-auto" href="./index.html"><img
+            src="image/Cream and Brown Minimalist Coffee Shop Logo (1).png" alt=""></a>
+
+        <!-- Navbar nav -->
+        <ul class="navbar-nav">
+
+
+
+
+          <li class="nav-item">
+            <a class="nav-link" id="nav-reservation" href="./events.html">Events</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" id="nav-gallery" href="./sample.html">Gallery</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" id="nav-contact" href="./sign.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- WELCOME -->
+  <header data-jarallax data-speed=".8"
+    style="background-image: url(image/cb-4.jpg) ; background-size: cover; background-position: center;">
+    <div class="d-flex flex-column min-vh-100 bg-dark bg-opacity-50 pt-10 pt-md-8 pb-7 pb-md-0">
+      <div class="container my-auto">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6 text-center">
+            <!-- Preheading -->
+            <h6 class="text-xs text-white text-opacity-75"><span class="text-primary">Café</span> / Restaurant</h6>
+
+            <!-- Heading -->
+            <h1 class="display-1 text-white mb-4">Touché</h1>
+
+            <!-- Subheading -->
+            <p class="text-center text-white text-opacity-75 mb-7">
+              A unique café located in the heart of Los Angeles. Always fresh coffee and biscuits. Open for indoor
+              dining and to-go orders.
+            </p>
+
+            <!-- Button -->
+            <a class="btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0" href="#reservation"> Make
+              reservation </a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container">
+        <div class="row">
+          <div class="col-md">
+            
+            <ul class="list-inline text-center text-md-start mb-3 my-md-5">
+              <li class="list-inline-item">
+                <a class="text-white text-opacity-75 text-primary-hover" href="#!">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item ms-5">
+                <a class="text-white text-opacity-75 text-primary-hover" href="#!">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item ms-5">
+                <a class="text-white text-opacity-75 text-primary-hover" href="#!">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            
+            <p class="font-serif text-white text-opacity-75 text-center text-md-end text-lg-end my-md-5">
+              <i class="fas fa-map-marker-alt text-primary me-3"></i> 1234 Dining Str., Los Angeles, CA 12345-0000
+            </p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </header>
+
+  <!-- DISCOVER -->
+  <section class="pt-7 pt-md-9">
+    <div class=" py-2 mt-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <!-- Divider -->
+            <hr class="hr-sm text-primary" />
+
+            <!-- Text -->
+            <p class="fs-lg lh-lg text-body-emphasis mb-5 mb-md-0">Take a coffee break or enjoy a meal.</p>
+          </div>
+          <div class="col-md-4">
+            <!-- Media -->
+            <div class="media-decoration media-decoration-1 mb-5 mb-md-0">
+              <!-- Border -->
+              <div class="media-decoration-border" data-jarallax-element="-40"></div>
+
+              <!-- Image -->
+              <img class="media-decoration-img img-fluid" src="image/cofee-1.jpg" alt="..." />
+            </div>
+          </div>
+          <div class="col-md-5 align-self-center mx-auto">
+            <!-- Heading -->
+            <h2 class="mb-2"><em>Always</em> amazing experience</h2>
+
+            <!-- Text -->
+            <p class="mb-0">
+              Every cup of coffee brings a delightful experience, from the rich aroma that awakens the senses to the
+              comforting warmth that soothes the soul. Each sip tells a story of tradition, passion, and craftsmanship.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOVER -->
+  <section class="py-7 py-md-9">
+    <div class=" py-2 mt-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 order-md-2 align-self-end">
+            <!-- Divider -->
+            <hr class="hr-sm text-primary" />
+
+            <!-- Text -->
+            <p class="fs-lg lh-lg text-body-emphasis mb-5 mb-md-0">Great variety of foods you will enjoy.</p>
+          </div>
+          <div class="col-md-4 order-md-3">
+            <!-- Media -->
+            <div class="media-decoration media-decoration-1 mb-5 mb-md-0">
+              <!-- Solid -->
+              <div class="media-decoration-solid" data-jarallax-element="-40"></div>
+
+              <!-- Border -->
+              <div class="media-decoration-border" data-jarallax-element="-40"></div>
+
+              <!-- Image -->
+              <img class="media-decoration-img img-fluid" src="image/cofee-2.jpg" alt="..." />
+            </div>
+          </div>
+          <div class="col-md-5 order-md-1 align-self-center mx-auto">
+            <!-- Heading -->
+            <h2 class="mb-2"><em>Beautiful</em> outdoor seating</h2>
+
+            <!-- Text -->
+            <p class="mb-0">
+              A beautiful outdoor seating area at a coffee shop offers the perfect blend of nature and relaxation. With
+              cozy chairs and tables surrounded by greenery, it creates a serene ambiance for enjoying your favorite
+              brew.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section data-jarallax data-speed=".8"
+    style="background-image: url(image/cb-2.jpg) ; background-size: cover; background-position: center;">
+    <div class="min-vh-100 py-7 py-md-9 bg-gradient-bottom-end-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4">
+            <!-- Divider -->
+            <hr class="hr-sm text-primary" />
+
+            <!-- Text -->
+            <p class="fs-lg lh-lg text-black mb-0">Enjoy our specialty coffees and award winning doughnuts in a friendly
+              atmosphere.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="py-7 py-md-9 border-bottom">
+    <div class=" py-2 mt-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6 text-center">
+            <!-- Heading -->
+            <h2 class="mb-2">Menu options</h2>
+
+            <!-- Subheading -->
+            <p class="mb-6">
+              The menu features a variety of coffees and snacks, perfect for pairing your favorite brew with a tasty
+              treat.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <!-- Navigation -->
+            <div class="nav justify-content-center mb-6" id="menuTabs" role="tablist">
+              <a class="nav-link active" id="mainsTab" data-bs-toggle="tab" href="#mains" role="tab"
+                aria-controls="mains" aria-selected="true">Mains</a>
+              <a class="nav-link" id="lunchTab" data-bs-toggle="tab" href="#lunch" role="tab"
+                aria-controls="lunch">Snacks</a>
+              <!-- <a class="nav-link" id="dinnerTab" data-bs-toggle="tab" href="#dinner" role="tab"
+                aria-controls="dinner">Dinner</a> -->
+              <a class="nav-link" id="drinksTab" data-bs-toggle="tab" href="#drinks" role="tab"
+                aria-controls="drinks">Drinks</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <!-- Content -->
+            <div class="tab-content" id="menuContent">
+              <div class="tab-pane fade show active" id="mains" role="tabpanel" aria-labelledby="mainsTab">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-1.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Burger</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Indulge in our handcrafted burgers, where every bite is a taste of perfection</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-7.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2"> Cappuccino</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Experience the perfect blend of rich espresso and velvety foam in every cappuccino.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-2.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Donut</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Sweet, soft, and irresistible – our donuts are the perfect treat for any time of day.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-3.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Croissant</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Flaky, buttery, and fresh – our croissants are a warm, golden delight.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                        
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/cold-coff.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                      
+                          <h5 class="mb-2">Cold coffee</h5>
+
+                      
+                          <p class="mb-0">Chill out with our smooth, refreshing cold coffee the perfect pick-me-up.</p>
+                        </div>
+                        <div class="col-2">
+                      
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                      
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-6.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                        
+                          <h5 class="mb-2">Syrniki</h5>
+                        
+                          <p class="mb-0">Soft, fluffy, and full of flavor – our syrniki are a bite of bliss with every forkful.</p>
+                        </div>
+                        <div class="col-2">
+                       
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="lunch" role="tabpanel" aria-labelledby="lunchTab">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-8.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Doppio</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Strong, smooth, and perfectly balanced – our Doppio delivers a rich, espresso kick.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-5.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+
+                          <h5 class="mb-2">Meals</h5>
+
+
+                          <p class="mb-0">Savor every bite – our meals are crafted with fresh ingredients and full of flavor.</p>
+                        </div>
+                        <div class="col-2">
+
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-6.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+
+                          <h5 class="mb-2">Syrniki</h5>
+
+                          <p class="mb-0">Soft, fluffy, and full of flavor – our syrniki are a bite of bliss with every forkful.</p>
+                        </div>
+                        <div class="col-2">
+
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/sandwish.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Sandwish</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Freshly made, packed with flavor – our sandwiches are the perfect bite for any craving.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/waffel.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">waffel</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Crispy on the outside, fluffy on the inside – our waffles are a sweet treat to start your day.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/g-1.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">chocolate shake</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Indulge in the rich, velvety goodness of our chocolate shank – a sweet escape in every bite.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+              <div class="tab-pane fade" id="drinks" role="tabpanel" aria-labelledby="drinksTab">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/orao.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">oreo milkshake</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Rich, creamy, and packed with Oreo goodness – our milkshake is a treat you’ll crave.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/mocha.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Mocha Coffee</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">A perfect blend of smooth espresso and rich chocolate – our Mocha coffee is a cozy, indulgent escape.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/matcha bubbe tea.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Matcha Bubble Tea</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Refreshing and creamy, with a burst of matcha flavor – our Bubble Tea is a vibrant treat in every sip.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/lime.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Lime Mojito</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Zesty, refreshing, and perfectly chilled – our Lime Mojito is the ultimate thirst-quencher.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-7.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Latte Coffee</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Smooth, creamy, and perfectly balanced – our Latte is a warm hug in a cup.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="py-3 border-bottom">
+                      <div class="row">
+                        <div class="col-3 align-self-center">
+                          <!-- Image -->
+                          <div class="ratio ratio-1x1">
+                            <img class="object-fit-cover" src="image/d-9.jpg" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <!-- Heading -->
+                          <h5 class="mb-2">Mousse Coffee</h5>
+
+                          <!-- Text -->
+                          <p class="mb-0">Light, airy, and indulgently smooth – our Mousse Coffee is a decadent treat with every spoonful.</p>
+                        </div>
+                        <div class="col-2">
+                          <!-- Price -->
+                          <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specials" class="specials section">
+    <div class="  pt-4 mt-3">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2 class="mb-2">Specials</h2>
+        <div><span>Check Our</span> <span class="description-title">Specials</span></div>
+      </div><!-- End Section Title -->
+    </div>
+    <div class="  py-5 mt-3">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#specials-tab-1">Coffee</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-2">Miracle Palm</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-3">Pizza</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-4">Pan cake</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-5">Fruit Salad</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="specials-tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>A Perfect Brew in Every Cup</h3>
+                    <p class="fst-italic">A Cappuccino is the perfect balance of rich espresso, steamed milk, and a
+                      creamy layer of foam. It’s a timeless coffee classic that combines smoothness and boldness in
+                      every sip. The velvety texture of the milk pairs beautifully with the intense flavor of espresso
+                    </p>
+                    <p>Perfect for any time of day, it’s a coffee that invites you to slow down and savor each moment.
+                      With its frothy top and deep coffee flavor, it’s the ideal choice for coffee lovers. Enjoy the art
+                      of cappuccino with every cup!</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="image/specials-3.avif" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Discover the Sweet Magic of Miracle Palm</h3>
+                    <p class="fst-italic">The Miracle Palm is a crowd favorite. Served chilled, it’s the ideal dessert
+                      for warm weather or as a palate cleanser after a rich meal. </p>
+                    <p>Miracle Palm is a delightful and indulgent dessert that combines tropical flavors with a touch of
+                      elegance. This sweet treat features layers of smooth coconut cream, juicy fruits, and a hint of
+                      rich caramel. Its unique combination of textures—creamy, crunchy, and soft—makes every bite a true
+                      miracle.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="image/specials-2.avif" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Crafted to Satisfy Every Craving</h3>
+                    <p class="fst-italic">we’re passionate about crafting the perfect pizza. Using only the freshest
+                      ingredients, we combine traditional recipes with modern twists to create a flavor experience like
+                      no other.</p>
+                    <p>Whether you're craving a classic Margherita or a bold, unique combination, we have something for
+                      every taste. We believe pizza is more than just food – it’s about bringing people together. Join
+                      us for a slice of happiness, and taste the difference in every bite.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="image/specials-1.avif" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>love a bite unique flavour</h3>
+                    <p class="fst-italic">They’re light and airy, yet rich in flavor, making each bite a perfect balance
+                      of sweetness and texture. Ideal for breakfast or a sweet snack, pancakes bring joy to any occasion
+                      Pair.</p>
+                    <p>Pancakes are the ultimate comfort food, perfect for any time of day. Soft, fluffy, and golden
+                      brown, they’re a delicious treat that everyone loves. Whether you top them with fresh berries,
+                      syrup, or a dollop of whipped cream, pancakes offer endless possibilities for customization.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="image/specials-6.webp" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-5">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nature’s Sweetness in Every Bite</h3>
+                    <p class="fst-italic">Our Fruit Salad is a vibrant medley of the freshest, juiciest fruits,
+                      carefully selected to deliver a refreshing, healthy treat. Bursting with natural sweetness, it’s
+                      the perfect balance of flavors and textures. From crisp apples to tangy citrus and succulent
+                      berries, every bite is a burst of freshness.</p>
+                    <p>Topped with a light drizzle of honey or a sprinkle of mint, it’s a delightful way to satisfy your
+                      sweet cravings. Whether enjoyed as a snack, dessert, or a refreshing side, our fruit salad is a
+                      perfect choice for those seeking a wholesome indulgence.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="image/specials-5.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- /Specials Section -->
+
+
+  <!-- RESERVATION -->
+  <section class="py-7 py-md-9 bg-light" id="reservation">
+    <div class="bg-secondary text-white py-5 mt-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6 text-center">
+            <!-- Heading -->
+            <h2 class="mb-2">Make online reservation</h2>
+
+            <!-- Subheading -->
+            <p class="mb-6">Easily make an online reservation and secure your spot for a perfect coffee experience
+              today!</p>
+          </div>
+        </div>
+        <div class="row justify-content-lg-center">
+          <div class="col-lg-8">
+            <!-- Form -->
+            <form>
+              <div class="row gx-3">
+                <div class="col-md-6">
+                  <!-- Contact number (hidden) -->
+                  <input type="hidden" name="contact_number" />
+
+                  <!-- Full name -->
+                  <div class="mb-3">
+                    <label class="visually-hidden" for="user_name">Full name</label>
+                    <input class="form-control" id="user_name" name="user_name" type="text" placeholder="Full name"
+                      required />
+                  </div>
+
+                  <!-- Phone number -->
+                  <div class="mb-3">
+                    <label class="visually-hidden" for="user_phone">Phone number</label>
+                    <input class="form-control" id="user_phone" name="user_phone" type="tel" placeholder="Phone number"
+                      required />
+                  </div>
+
+                  <!-- Email address -->
+                  <div class="mb-3">
+                    <label class="visually-hidden" for="user_email">Email address</label>
+                    <input class="form-control" id="user_email" name="user_email" type="email"
+                      placeholder="Email address" required />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <!-- Guests -->
+                  <div class="mb-3">
+                    <label class="visually-hidden" for="guests">Guests</label>
+                    <select class="form-select" id="guests" name="guests" required>
+                      <option value="1">1 person</option>
+                      <option value="2" selected="">2 persons</option>
+                      <option value="3">3 persons</option>
+                      <option value="4">4 persons</option>
+                      <option value="5">5 persons</option>
+                    </select>
+                  </div>
+
+                  <!-- Date -->
+                  <div class="mb-3">
+                    <label class="visually-hidden" for="date">Date</label>
+                    <input class="form-control" id="date" name="date" type="date" value="2021-02-12" required />
+                  </div>
+
+                  <!-- Time -->
+                  <div class="mb-3">
+                    <label class="visually-hidden" for="time">Time</label>
+                    <input class="form-control" id="time" name="time" type="time" value="18:00" required />
+                  </div>
+                </div>
+                <div class="col text-center">
+                  <!-- Button -->
+                  <a class="btn btn-outline- text-white text-hover mb-7 mb-md-0" href="#reservation">Reserve a table
+                  </a>
+                  <!-- <button class="btn btn-outline-primary" type="submit">Reserve a table</button> -->
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <section class="container py-5">
+    <h2 class="text-center mb-4">Testimonial </h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="client-image">
+                <img src="image/c-1.jpg" alt="Client 1">
+                <div class="hover-effect">
+                  <h1>Ishan</h1>
+                    <i class="bi bi-search"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="client-image">
+                <img src="image/testimonials-2.jpg" alt="Client 2">
+                <div class="hover-effect">
+                  <h1>Sarah</h1>
+                    <i class="bi bi-link"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="client-image">
+                <img src="image/testimonials-4.jpg" alt="Client 3">
+                <div class="hover-effect">
+                  <h1>Wilsson</h1>
+                    <i class="bi bi-person"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <!-- EVENTS -->
+  <section class="pt-7 pt-md-9">
+    <div class=" py-2 mt-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6 text-center">
+            <!-- Heading -->
+            <h2 class="mb-2">Upcoming events</h2>
+
+            <!-- Subheading -->
+            <p class="mb-6">Commodi rem veritatis quis eaque mollitia.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="events">
+        <div class="event">
+          <div class="event-sm collapse">
+            <div class="container">
+              <div class="row align-items-center py-6">
+                <div class="col-3 col-md-2 col-lg-1">
+                  <!-- Date -->
+                  <time class="d-block text-center text-body-emphasis" datetime="2017-09-30">
+                    <span class="d-block mb-2 display-6 font-serif">30</span>
+                    <span>Sep</span>
+                  </time>
+                </div>
+                <div class="col-9 col-md-7 col-lg-8">
+                  <!-- Heading -->
+                  <div class="h4 mb-4 mb-md-0" data-bs-toggle="collapse" data-bs-target="#eventOne"
+                    aria-controls="eventOne" role="button">
+                    Enchanting Live Performances at the Coffee Shop
+                  </div>
+                </div>
+                <div class="col-9 offset-3 col-md-3 offset-md-0 text-md-right">
+                  <!-- Button -->
+                  <a class="btn btn-outline-" href="#section_reservation"> Reserve a table </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="event-lg collapse show bg-cover" id="eventOne"
+            style="background-image: url(image/cb-1.webp) ; background-size: cover; background-position: center;">
+            <div class="bg-dark bg-opacity-50">
+              <div class="container">
+                <div class="row py-10">
+                  <div class="col-md-8 col-lg-5">
+                    <!-- Date -->
+                    <h3 class="text-xs text-warning">
+                      <time datetime="2017-09-30">January 30, 2025</time>
+                    </h3>
+
+                    <!-- Heading -->
+                    <h2 class="mb-3 text-white">Enchanting Live Performances at the Coffee Shop</h2>
+
+                    <!-- Description -->
+                    <p class="mb-6 text-white text-opacity-75">
+                      Enjoy live performances that bring a unique charm to the coffee shop, blending music with the
+                      perfect coffee vibe. It’s an unforgettable experience where every sip is accompanied by
+                      captivating
+                      melodies.
+
+                    </p>
+
+                    <!-- Button -->
+                    <a class="btn btn-outline- text-white text-hover" href="#section_reservation"> Reserve
+                      a table </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-sm collapse show">
+            <div class="container border-top">
+              <div class="row align-items-center py-6">
+                <div class="col-3 col-md-2 col-lg-1">
+                  <!-- Date -->
+                  <time class="d-block text-center text-body-emphasis" datetime="2017-09-29">
+                    <span class="d-block mb-2 display-6 font-serif">9</span>
+                    <span>Feb</span>
+                  </time>
+                </div>
+                <div class="col-9 col-md-7 col-lg-8">
+                  <!-- Heading -->
+                  <div class="h4 mb-4 mb-md-0" data-bs-toggle="collapse" data-bs-target="#eventTwo"
+                    aria-controls="eventTwo" role="button">
+                    Musical Moments with Every Sip
+                  </div>
+                </div>
+                <div class="col-9 offset-3 col-md-3 offset-md-0 text-md-right">
+                  <!-- Button -->
+                  <a class="btn btn-outline-" href="#section_reservation"> Reserve a table </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="event-lg collapse bg-cover" id="eventTwo" style="background-image: url(assets/img/9.jpg)">
+            <div class="bg-black bg-opacity-50">
+              <div class="container">
+                <div class="row py-10">
+                  <div class="col-md-8 col-lg-5">
+                    <!-- Date -->
+                    <h3 class="text-xs text-primary">
+                      <time datetime="2017-09-29">Febrauary 9, 2025</time>
+                    </h3>
+
+                    <!-- Heading -->
+                    <h2 class="mb-3 text-white">Musical Moments with Every Sip</h2>
+
+                    <!-- Description -->
+                    <p class="mb-6 text-white text-opacity-75">
+                      Musical moments with every sip turn an ordinary coffee outing into an extraordinary experience. As
+                      you enjoy your favorite blend, the sounds of live performances enhance your mood, making each
+                      visit
+                      feel like a mini celebration of great coffee and unforgettable music.
+                    </p>
+
+                    <!-- Button -->
+                    <a class="btn btn-outline- text-white text-hover" href="#section_reservation"> Reserve
+                      a table </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-sm collapse show">
+            <div class="container border-top">
+              <div class="row align-items-center py-6">
+                <div class="col-3 col-md-2 col-lg-1">
+                  <!-- Date -->
+                  <time class="d-block text-center text-body-emphasis" datetime="2017-09-28">
+                    <span class="d-block mb-2 display-6 font-serif">28</span>
+                    <span>Mar</span>
+                  </time>
+                </div>
+                <div class="col-9 col-md-7 col-lg-8">
+                  <!-- Heading -->
+                  <div class="h4 mb-4 mb-md-0" data-bs-toggle="collapse" data-bs-target="#eventThree"
+                    aria-controls="eventThree" role="button">
+                    Vibrant Vibes & Coffee Delights
+                  </div>
+                </div>
+                <div class="col-9 offset-3 col-md-3 offset-md-0 text-md-right">
+                  <!-- Button -->
+                  <a class="btn btn-outline-" href="#section_reservation"> Reserve a table </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="event-lg collapse bg-cover" id="eventThree" style="background-image: url(assets/img/10.jpg)">
+            <div class="bg-black bg-opacity-50">
+              <div class="container">
+                <div class="row py-10">
+                  <div class="col-md-8 col-lg-5">
+                    <!-- Date -->
+                    <h3 class="text-xs text-primary">
+                      <time datetime="2017-09-28">September 28, 2017</time>
+                    </h3>
+
+                    <!-- Heading -->
+                    <h2 class="mb-3 text-white">Vibrant Vibes & Coffee Delights</h2>
+
+                    <!-- Description -->
+                    <p class="mb-6 text-white text-opacity-75">
+                      Vibrant vibes fill the air as live music energizes the space, creating a lively atmosphere to
+                      complement every coffee. Each cup of coffee becomes a part of an exciting experience, with
+                      delightful tunes enhancing your mood. The blend of upbeat rhythms and rich coffee delights makes
+                      every visit feel like a celebration.
+                    </p>
+
+                    <!-- Button -->
+                    <a class="btn btn-outline- text-white text-hover" href="#section_reservation"> Reserve
+                      a table </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- GALLERY -->
+  <!-- <section class="py-7 py-md-9">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-center">
+    
+          <h2 class="mb-2">Our gallery</h2>
+
+      
+          <p class="mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+      </div>
+      <div class="row gx-3" data-isotope>
+        <div class="col-6 col-sm-6 col-md-4">
+        
+          <a class="d-block mb-3" href="#" data-bigpicture='{ "imgSrc": "assets/img/11.jpg" }'>
+            <img class="img-fluid" src="image/g-1.jpg" alt="..." />
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4">
+       
+          <a class="d-block mb-3" href="#" data-bigpicture='{ "imgSrc": "assets/img/16.jpg" }'>
+            <img class="img-fluid" src="image/g-2.jpg" alt="..." />
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4">
+       
+          <a class="d-block mb-3" href="#" data-bigpicture='{ "imgSrc": "assets/img/13.jpg" }'>
+            <img class="img-fluid" src="image/g-3.jpg" alt="..." />
+          </a>
+        </div>
+       
+        <div class="col-6 col-sm-6 col-md-4">
+       
+          <a class="d-block mb-3" href="#" data-bigpicture='{ "imgSrc": "assets/img/14.jpg" }'>
+            <img class="img-fluid" src="image/g-5.jpg" alt="..." />
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4">
+         
+          <a class="d-block mb-3" href="#" data-bigpicture='{ "imgSrc": "assets/img/18.jpg" }'>
+            <img class="img-fluid" src="image/g-6.jpg" alt="..." />
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4">
+      
+          <a class="d-block mb-3" href="#" data-bigpicture='{ "imgSrc": "assets/img/17.jpg" }'>
+            <img class="img-fluid" src="image/g-7.jpg" alt="..." />
+          </a>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4">
+      
+          <a class="d-block mb-3" href="#" data-bigpicture='{ "imgSrc": "assets/img/12.jpg" }'>
+            <img class="img-fluid" src="image/g-8.jpg" alt="..." />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- NEWSLETTER -->
+  <section class="py-7 py-md-9 bg-light">
+    <div class="bg-secondary text-white py-5 mt-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6 text-center">
+            <!-- Heading -->
+            <h2 class="mb-2">Newsletter</h2>
+
+            <!-- Subheading -->
+            <p class="mb-6">Our newsletter keeps you in the loop with all the exciting happenings at our coffee shop.
+            </p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <!-- Begin Mailchimp Signup Form -->
+            <div id="mc_embed_signup">
+              <form
+                action="https://gmail.us6.list-manage.com/subscribe/post?u=c7b7808bb5a16b9f09c4e1fe0&amp;id=96b8442f9a"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank"
+                novalidate>
+                <div class="row justify-content-center gx-3" id="mc_embed_signup_scroll">
+                  <div class="col">
+                    <label class="visually-hidden" for="mce-EMAIL">Email Address </label>
+                    <input class="form-control" type="email" value="" name="EMAIL" id="mce-EMAIL" />
+                  </div>
+                  <div class="visually-hidden" id="mce-responses">
+                    <div class="response" id="mce-error-response" style="display: none"></div>
+                    <div class="response" id="mce-success-response" style="display: none"></div>
+                  </div>
+                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px" aria-hidden="true">
+                    <input type="text" name="b_c7b7808bb5a16b9f09c4e1fe0_96b8442f9a" tabindex="-1" value="" />
+                  </div>
+                  <div class="col-auto">
+                    <a class="btn btn-outline- text-white text--hover mb-7 mb-md-0" href="#reservation"> Subscribe </a>
+                    <!-- <input class="btn btn-outline-primary" type="submit" value="Subscribe" name="subscribe"
+                      id="mc-embedded-subscribe" /> -->
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!--End mc_embed_signup-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MAP -->
+  <!-- <section class="bg-light" data-map='{"center": [-118.244615, 34.052979], "zoom": 12}' style="height: 30rem"></section> -->
+
+  <!-- FOOTER -->
+
+  <footer class="py-7 py-md-9 bg-black">
+    <div class="bg-secondary text-white py-5 mt-3">
+      <div class="container px-4">
+        <div class="row gx-7">
+          <div class="col-sm-4">
+            <!-- Heading -->
+            <h5 class="text-xs ">About Us</h5>
+
+            <!-- Text -->
+            <p class="mb-6">
+              We’re dedicated to serving you the best coffee with a smile. Our mission is to create a welcoming space.
+
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <!-- Heading -->
+            <h5 class="text-xs ">Contact info</h5>
+
+            <!-- List -->
+            <ul class="list-unstyled mb-6">
+              <li class="d-flex mb-2">
+                <div class="fas fa-map-marker-alt me-3 mt-2 fs-sm"></div>
+                1234 Altschul, Los Angeles, CA 10027-0000
+              </li>
+              <li class="d-flex mb-2">
+                <div class="fas fa-phone me-3 mt-2 fs-sm"></div>
+                +1 987 654 3210
+              </li>
+              <li class="d-flex">
+                <div class="far fa-envelope me-3 mt-2 fs-sm"></div>
+                <a href="mailto:admin@domain.com">admin@domain.com</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <!-- Heading -->
+            <h5 class="text-xs ">Opening hours</h5>
+
+            <!-- Text -->
+            <div class="mb-3">
+              <div class="text-xs">Monday - Thursday</div>
+              <div class="font-serif">10:00 AM - 11:00 PM</div>
+            </div>
+
+            <!-- Text -->
+            <div class="mb-6">
+              <div class="text-xs">Friday - Sunday</div>
+              <div class="font-serif">12:00 AM - 03:00 AM</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <!-- Copyright -->
+            <div class="d-flex align-items-center">
+              <hr class="hr-sm me-3" style="height: 1px" />
+              &copy; 2021 Touché. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast position-fixed bottom-0 start-50 translate-middle-x mb-3 mb-md-5" id="notification" role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body mx-auto"></div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
