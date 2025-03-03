@@ -129,13 +129,22 @@
       /* Ensures the content is above the blur effect */
     }
 
+    input::placeholder {
+      color: white;
+      /* Change to any color */
+      opacity: 1;
+    }
 
     textarea.form-control {
       background: black;
+      color: white;
+
     }
+
 
     input.form-control {
       background: black;
+      color: white;
     }
 
     .form-control:focus {
@@ -144,6 +153,9 @@
       border-color: #cda45e;
       outline: 0;
     }
+
+
+
 
     h3,
     h2 {
@@ -212,6 +224,12 @@
       width: 87px;
     }
 
+    ::placeholder {
+      color: white !important;
+      opacity: 1;
+      /* Ensures the color is fully visible */
+    }
+
     @media (max-width: 991px) {
       .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -222,8 +240,8 @@
       }
     }
 
-    @media screen and (min-width:300px) and  (max-width: 500px) {
-      #contact  {
+    @media screen and (min-width:300px) and (max-width: 500px) {
+      #contact {
         position: relative;
         padding: 34% 10px;
       }
@@ -330,8 +348,10 @@
             <img src="image/email.png" alt="..." />
             <div>
               <h3>Email Us</h3>
-              <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+              <p>Email protection</p>
+              <!-- <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
                   data-cfemail="1e777078715e7b667f736e727b307d7173">[email&#160;protected]</a></p>
+           -->
             </div>
           </div><!-- End Info Item -->
 
@@ -407,7 +427,6 @@
               </li>
               <li class="d-flex">
                 <div class="far fa-envelope me-3 mt-2 fs-sm"></div>
-                <a href="mailto:admin@domain.com">admin@domain.com</a>
               </li>
             </ul>
           </div>
